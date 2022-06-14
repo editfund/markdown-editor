@@ -1,0 +1,12 @@
+@import "misc.css";
+
+#body::-webkit-scrollbar {
+  display: none;
+}
+
+#cy::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Markdown Editor - WYSIWYG,KaTeX</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/x-icon" href="./favicon.svg" sizes="any">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+  <!-- ./css-1rd -->
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- ./css-3rd -->
+  <link rel="stylesheet" href="https://unpkg.com/material-icons@1.11.1/iconfont/material-icons.css" />
+
+  <!-- TUI-Editor CSS -->
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+  <!-- TUI-Editor Plugin CSS-->
+  <link rel="stylesheet"
+    href="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight.min.css" />
+  <link rel="stylesheet" href="https://uicdn.toast.com/tui-color-picker/v2.2.7/tui-color-picker.css" />
+  <link rel="stylesheet"
+    href="https://uicdn.toast.com/editor-plugin-color-syntax/latest/toastui-editor-plugin-color-syntax.min.css" />
+
+  <!-- TUI-Editor Plugin 语法高亮CSS-->
+  <link rel="stylesheet" href="https://unpkg.com/prismjs@1.28.0/themes/prism.min.css" />
+  <!-- TUI-Editor Plugin 数学公式CSS-->
+  <link rel="stylesheet" href="https://unpkg.com/katex@0.15.6/dist/katex.min.css" />
+
+  <!-- material-components-web -->
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.css" />
+
+</head>
+
+<body>
+  <!-- 用于打开文件-->
+  <input type="file" id="openFileDialog-md" style="display: none" />
+
+  <!-- 编辑器-->
+  <div id="div-layer-md">
+    <div id="md-editor"></div>
+  </div>
+
+  <!-- 许可证对话框，mdc-dialog -->
+  <div class="mdc-dialog mdc-dialog--fullscreen">
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface" role="dialog" aria-modal="true" aria-labelledby="my-dialog-title"
+        aria-describedby="my-dialog-content">
+        <div class="mdc-dialog__header">
+          <h2 class="mdc-dialog__title" id="my-dialog-title">
+            许可证
+          </h2>
+          <button class="mdc-icon-button material-icons mdc-dialog__close" data-mdc-dialog-action="close">
+            close
+          </button>
+        </div>
+        <div class="mdc-dialog__content" id="my-dialog-content">
+          <!-- Render textfield component -->
+          <label class="mdc-text-field mdc-text-field--filled" style="width: 100%;">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label mdc-floating-label--float-above" id="my-label">序列号</span>
+            <input type="text" class="mdc-text-field__input" aria-labelledby="my-label" id="sn">
+            <span class="mdc-line-ripple"></span>
+          </label>
+          <!-- Render textfield component -->
+          <label class="mdc-text-field mdc-text-field--filled" style="width: 100%;">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label" id="my-label">许可证</span>
+            <input type="text" class="mdc-text-field__input" aria-labelledby="my-label" id="license">
+            <span class="mdc-line-ripple"></span>
+          </label>
+        </div>
+        <div class="mdc-dialog__actions">
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="ok">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">确定</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+  </div>
+
+  <!-- TUI-Editor JS -->
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
+  <!-- TUI-Editor Plugin JS -->
+  <script
+    src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js">
+    </script>
+
+  <script src="https://uicdn.toast.com/tui-color-picker/v2.2.7/tui-color-picker.min.js"></script>
+
+  <script src="https://uicdn.toast.com/editor-plugin-color-syntax/latest/toastui-editor-plugin-color-syntax.min.js">
+  </script>
+
+  <!-- Required Material Web JavaScript library -->
+  <script src="https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.js"></script>
+
+  <!-- misc JS -->
+  <script src="https://unpkg.com/latex.js@0.12.4/dist/latex.js"></script>
+  <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <script src="https://unpkg.com/dexie@3.2.2/dist/dexie.min.js"></script>
+  <script src="https://unpkg.com/blueimp-md5@2.19.0/js/md5.js"></script>
+  <script src="https://openfpcdn.io/fingerprintjs/v3/iife.min.js"></script>
+</body>
+<!-- js-1rd -->
+<script src="./register-sw.js"></script>
+<script src="./mjs/main.js" type="module"></script>
+
+</html>
